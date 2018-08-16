@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		Hello	
+		<form method='POST' action='/'>
+			<input type='text' name='app_name'>
+			<input type='submit' name='Submit'>
+			<h3>App Name</h3>
+		</form>
+
+			{% for app in apps%}
+			<form method="POST" action='./update'>
+				<input type='hidden' value="{{app.app_name}}" name="oldapp">
+				<input type="text" value="{{app.app_name}}" name="newapp">
+				<input type="submit" value="Update">
+			</form>
+			
+			<form method="POST" action='/delete'>
+				<input type='hidden' value="{{app.app_name}}" name=app_name>
+				<input type="submit" value="Delete">
+			</form>
+
+
+			{% endfor %}
+		
+	</body>
+</html>
+
